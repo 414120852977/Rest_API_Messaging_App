@@ -17,8 +17,8 @@ public class HelloRestControllerApplication {
 	@RestController
 	public class HelloController {
 	 
-	    @RequestMapping("/hello")
-	    public String hello(@RequestParam(name = "name", defaultValue = "World") String name)  {
+	    @RequestMapping("/hello/Mark")
+	    public String hello(@RequestParam(name = "Mark", defaultValue = "From Bridgelabz") String name)  {
 	    	    return "Hello " + name;
 	    
 	}
