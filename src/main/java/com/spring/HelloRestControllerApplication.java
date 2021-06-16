@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,6 +48,13 @@ public class HelloRestControllerApplication {
 	    public String sayHello(@RequestBody User user) {
 	        return "Hello " + user.getFirstName()+" "+user.getLastName()+"!";
 	    }
+	 
+	 // curl -X PUT localhost:8090/hello/put/Mark/?lastName=Terrisa -w "\n"
+	 @PutMapping("/put/{firstName}")
+	 public String sayHello(@PathVariable String firstName,
+			 @RequestParam(value = "lastName") String lastName) {
+		 return "Hello " +firstName + " " + lastName + "!";
+	 }
 	}
 }
 
